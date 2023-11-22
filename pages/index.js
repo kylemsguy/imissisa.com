@@ -252,7 +252,7 @@ function NoStreamLayout(props) {
             onClick={() => setImage(selectNextImage(props.usedImageSet, image))} />
         <StreamInfo status={props.status} info={props.streamInfo} />
         <PastStreamCounter />
-        <p><Link href="/reps">{lang.Main.RandomVodLink}</Link></p>
+        <p style={{display: "none"}}><Link href="/reps">{lang.Main.RandomVodLink}</Link></p>
         <CommonFooter channelLink={props.channelLink} />
     </div>
 }
