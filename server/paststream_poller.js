@@ -5,20 +5,21 @@ function createPollRoute(channelID) {
 }
 
 async function fetchPaststreamPage(channelID) {
-    try {
-        const res = await fetchWithTimeout(createPollRoute(channelID), {
-            headers: {
-                "X-APIKEY": process.env.HOLODEX_API_KEY
-            }
-        }, undefined, "Get Holodex Stream Info")
-        if (res.status !== 200) {
-            return { error: `HTTP status: ${res.status}`, result: null }
-        }
-        const youtubeJSON = await res.json()
-        return { error: null, result: youtubeJSON }
-    } catch (e) {
-        return { error: e.toString(), result: null }
-    }
+    return { error: "Skipping holodex poll because it doesn't work anyways", result: null }
+    // try {
+    //     const res = await fetchWithTimeout(createPollRoute(channelID), {
+    //         headers: {
+    //             "X-APIKEY": process.env.HOLODEX_API_KEY
+    //         }
+    //     }, undefined, "Get Holodex Stream Info")
+    //     if (res.status !== 200) {
+    //         return { error: `HTTP status: ${res.status}`, result: null }
+    //     }
+    //     const youtubeJSON = await res.json()
+    //     return { error: null, result: youtubeJSON }
+    // } catch (e) {
+    //     return { error: e.toString(), result: null }
+    // }
 }
 
 function extractPaststreamInfo(fromPageContent) {
