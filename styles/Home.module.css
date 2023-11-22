@@ -32,7 +32,7 @@
 
 .streamInfo {
     /* background: linear-gradient(rgba(140, 247, 172, 0.3) 0%, rgb(140, 247, 172) 100%); */
-    background: #00BFFF;
+    background: #FFE6D7;
     border: 1px solid rgb(117, 207, 137);
     border-radius: 6px;
     padding: 0.8rem;
@@ -128,7 +128,7 @@
 .bigButton {
     display: block;
     /*background: linear-gradient(rgb(70, 200, 101) 0%, rgb(36, 175, 66) 100%);*/
-    background: #00BFFF;
+    background: #FFE6D7;
     border: 1px solid #247938;
     border-radius: 6px;
     padding: 0.8rem;
