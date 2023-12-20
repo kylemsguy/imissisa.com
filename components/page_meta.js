@@ -38,7 +38,7 @@ export function CommonFooter(props) {
             {lang.formatString(
                 lang.CommonMetadata.FooterText,
                 <a href="https://github.com/kylemsguy/imissisa.com">{lang.CommonMetadata.FooterSourceLink}</a>,
-                <a href={fancordInviteLink}>{lang.CommonMetadata.FooterFancordLink}</a>
+                fancordInviteLink ? <a href={fancordInviteLink}>{lang.CommonMetadata.FooterFancordLink}</a> : null
             )}
         </small>
     </footer>
