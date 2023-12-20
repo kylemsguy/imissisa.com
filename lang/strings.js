@@ -4,9 +4,10 @@ const AllStrings = {}
 AllStrings["en"] = {
     CommonMetadata: {
         HeaderSMTitle: "I MISS S.S. ISA",
-        FooterText: "Not affiliated with S.S. Isa - {0}",
+        FooterText: "Not affiliated with S.S. Isa - {0} {1}",
         FooterSourceLink: "Source",
-        FooterStreamerLink: "S.S. Isa"
+        FooterStreamerLink: "S.S. Isa",
+        FooterFancordLink: "Unofficial Fan Discord"
     },
 
     Main: {
