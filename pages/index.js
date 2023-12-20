@@ -103,6 +103,7 @@ export async function getServerSideProps({ req, res, query }) {
         ? process.env.WATCH_CHANNEL_HANDLE
         : `channel/${process.env.WATCH_CHANNEL_ID}`
     const channelLink = `https://www.youtube.com/${channelURLEnd}`
+    const fancordInviteLink = process.env.FANCORD_INVITE_LINK
 
     let staleOnArrival = false
     let useStreamInfo = await ds.getKnownStreamData(coordinator)
@@ -116,6 +117,7 @@ export async function getServerSideProps({ req, res, query }) {
                 showDebugBar: (process.env.USE_DUMMY_DATA === "true"),
                 absolutePrefix,
                 channelLink, 
+                fancordInviteLink,
                 dynamic: { isError: true, initialImage: selectRandomImage(ERROR_IMAGE_SET) } 
             } }
         }
@@ -142,6 +144,7 @@ export async function getServerSideProps({ req, res, query }) {
         staleOnArrival,
         absolutePrefix,
         channelLink,
+        fancordInviteLink,
         dynamic: {
             initialImage: imageFromStreamStatus(useStreamInfo.live),
             usedImageSet: null, //set in Home.componentDidMount
@@ -233,7 +236,7 @@ function LiveOrStartingSoonLayout(props) {
         <img className={styles.bigImage} src={`${props.absolutePrefix}/${image}`} alt={lang.Main.ImageAlt}  
             onClick={() => setImage(selectNextImage(props.usedImageSet, image))} />
         {pastStreamCounter}
-        <CommonFooter channelLink={props.channelLink} />
+        <CommonFooter channelLink={props.channelLink} fancordInviteLink={props.fancordInviteLink} />
     </div>
 }
 
@@ -253,7 +256,7 @@ function NoStreamLayout(props) {
         <StreamInfo status={props.status} info={props.streamInfo} />
         <PastStreamCounter />
         <p style={{display: "none"}}><Link href="/reps">{lang.Main.RandomVodLink}</Link></p>
-        <CommonFooter channelLink={props.channelLink} />
+        <CommonFooter channelLink={props.channelLink} fancordInviteLink={props.fancordInviteLink} />
     </div>
 }
 
@@ -274,7 +277,7 @@ function ErrorLayout(props) {
         </div>
         <PastStreamCounter />
         <p><Link href="/reps">{lang.Main.RandomVodLink}</Link></p>
-        <CommonFooter channelLink={props.channelLink} />
+        <CommonFooter channelLink={props.channelLink} fancordInviteLink={props.fancordInviteLink} />
     </div>
 }
 
@@ -349,6 +352,7 @@ export default function Home(props) {
     const layoutCommonProps = {
         absolutePrefix: props.absolutePrefix,
         channelLink: props.channelLink,
+        fancordInviteLink: props.fancordInviteLink,
         streamInfo: data.streamInfo,
         ...effectiveStatusBase
     }
