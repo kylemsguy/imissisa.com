@@ -103,7 +103,7 @@ export async function getServerSideProps({ req, res, query }) {
         ? process.env.WATCH_CHANNEL_HANDLE
         : `channel/${process.env.WATCH_CHANNEL_ID}`
     const channelLink = `https://www.youtube.com/${channelURLEnd}`
-    const fancordInviteLink = process.env.FANCORD_INVITE_LINK
+    const fancordInviteLink = process.env.FANCORD_INVITE_LINK !== undefined ? process.env.FANCORD_INVITE_LINK : null
 
     let staleOnArrival = false
     let useStreamInfo = await ds.getKnownStreamData(coordinator)
