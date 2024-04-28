@@ -7,7 +7,7 @@ AllStrings["en"] = {
         FooterText: "Not affiliated with S.S. Isa - {0} {1}",
         FooterSourceLink: "Source",
         FooterStreamerLink: "S.S. Isa",
-        FooterFancordLink: "Unofficial Fan Discord"
+        FooterFancordLink: "Official Isa Discord"
     },
 
     Main: {
